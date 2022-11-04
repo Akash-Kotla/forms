@@ -5,7 +5,6 @@ import androidx.lifecycle.MutableLiveData
 import com.example.forms_spinner.Apiinterface.ApiUtilities
 import com.example.forms_spinner.Apiinterface.getallpackinterface
 import com.example.forms_spinner.model.PostModels
-
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -27,7 +26,7 @@ class AllPackRepository {
                 response: Response<PostModels?>
             ) {
                 if (response.isSuccessful){
-                    Log.d("success", "-->"+ (response.body()!!.data[0].courseLevel.toString() ))
+                    Log.d("success", "-->"+ (response.body()!!.data))
                     packData.postValue(response.body())
                 }
 
@@ -39,10 +38,9 @@ class AllPackRepository {
                 packData.postValue(PostModels())
             }
 
-
         })
 
-    return packData
+        return packData
     }
 }
 
